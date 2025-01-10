@@ -14,18 +14,25 @@
     </header>
 
     <main>
-        <section class="gallery">
-            <div class="gallery-item">
-                <img src="images/taj_mahal.jpg" alt="Taj Mahal" id="main-image">
-                <p class="quote">Taj Mahal</p>
-            </div>
+        <section class="cover">
+            <img src="images/india_flag.jpg" alt="India Flag" id="cover-image">
         </section>
 
-        <!-- Modal for enlarged image -->
-        <div id="modal" class="modal">
-            <span class="close" id="close-btn">&times;</span>
-            <img class="modal-content" id="modal-image" alt="Taj Mahal">
-        </div>
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery hidden">
+            <div class="gallery-item">
+                <img src="images/taj_mahal.jpg" alt="Taj Mahal">
+                <p class="quote">Taj Mahal</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/door_mahal.jpg" alt="Door Mahal">
+                <p class="quote">Door Mahal</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/sisters.jpg" alt="Sisters">
+                <p class="quote">Sisters</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -33,26 +40,13 @@
     </footer>
 
     <script>
-        // JavaScript for modal functionality
-        const mainImage = document.getElementById('main-image');
-        const modal = document.getElementById('modal');
-        const modalImage = document.getElementById('modal-image');
-        const closeBtn = document.getElementById('close-btn');
+        // JavaScript for navigation between cover and gallery
+        const coverImage = document.getElementById('cover-image');
+        const gallery = document.getElementById('gallery');
 
-        mainImage.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            modalImage.src = mainImage.src;
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside the image
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
+        coverImage.addEventListener('click', () => {
+            document.querySelector('.cover').classList.add('hidden');
+            gallery.classList.remove('hidden');
         });
     </script>
 </body>
