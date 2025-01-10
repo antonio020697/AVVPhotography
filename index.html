@@ -16,26 +16,44 @@
     <main>
         <section class="gallery">
             <div class="gallery-item">
-                <img src="https://picsum.photos/600/400?random=1" alt="Mock Photography">
-                <div class="quote">"A moment frozen in time."</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://picsum.photos/600/400?random=2" alt="Mock Photography">
-                <div class="quote">"Beauty in simplicity."</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://picsum.photos/600/400?random=3" alt="Mock Photography">
-                <div class="quote">"Every picture tells a story."</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://picsum.photos/600/400?random=4" alt="Mock Photography">
-                <div class="quote">"The art of observation."</div>
+                <img src="images/taj_mahal.jpg" alt="Taj Mahal" id="main-image">
+                <p class="quote">Taj Mahal</p>
             </div>
         </section>
+
+        <!-- Modal for enlarged image -->
+        <div id="modal" class="modal">
+            <span class="close" id="close-btn">&times;</span>
+            <img class="modal-content" id="modal-image" alt="Taj Mahal">
+        </div>
     </main>
 
     <footer>
         &copy; 2025 AVV Photography. All rights reserved. | <a href="#">Contact Us</a>
     </footer>
+
+    <script>
+        // JavaScript for modal functionality
+        const mainImage = document.getElementById('main-image');
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeBtn = document.getElementById('close-btn');
+
+        mainImage.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImage.src = mainImage.src;
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
